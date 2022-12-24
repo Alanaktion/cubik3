@@ -1,12 +1,12 @@
 <template>
-    <div class="rounded border dark:border-ngray-600 p-3">
+    <div class="rounded border dark:border-zinc-600 p-3">
         <div class="flex items-center mb-4">
             <router-link class="mr-3"
                 :to="`/@${post.user.username}`">
                 <img class="w-10 h-10 rounded-full" :src="post.user.gravatar" :alt="`Avatar of ${post.user.name}`">
             </router-link>
             <div class="text-sm">
-                <router-link class="text-gray-900 dark:text-gray-100 leading-none"
+                <router-link class="text-gray-900 dark:text-zinc-100 leading-none"
                     :to="`/@${post.user.username}`">
                     {{ post.user.name }}
                 </router-link>

@@ -41,7 +41,16 @@
 </template>
 
 <script>
+import FormBtn from '../components/FormBtn.vue';
+import PostCard from '../components/PostCard.vue';
+import PostCardPlaceholder from '../components/PostCardPlaceholder.vue';
+
 export default {
+    components: {
+        FormBtn,
+        PostCard,
+        PostCardPlaceholder,
+    },
     data: () => ({
         loading: true,
         user: null,

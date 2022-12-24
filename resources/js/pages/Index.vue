@@ -14,7 +14,7 @@
                         </router-link>
                     </div>
                     <div class="mt-3 sm:mt-0 sm:ml-3 rounded-md shadow">
-                        <router-link to="/login" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-blue-700 bg-white hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10 dark:bg-ngray-700 dark:hover:bg-ngray-600 dark:text-gray-200 dark:hover:text-gray-100">
+                        <router-link to="/login" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-blue-700 bg-white hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10 dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:text-zinc-200 dark:hover:text-gray-100">
                             Sign in
                         </router-link>
                     </div>
@@ -28,6 +28,9 @@
 import Home from './Home.vue';
 
 export default {
+    components: {
+        Home,
+    },
     computed: {
         authenticated() {
             return this.$store.state.user ? true : false;

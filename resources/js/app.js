@@ -1,16 +1,11 @@
 import axios from 'axios';
-import Vue from 'vue';
+import { createApp } from 'vue';
 import router from './router';
 import store from './vuex-store';
 
 // Make basic libraries accessible globally
 window.axios = axios;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-window.Vue = Vue;
-
-// Register components dynamically
-const files = require.context('./', true, /\.vue$/i);
-files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 // Set user in store
 const el = document.querySelector('#userData');
@@ -20,7 +15,7 @@ if (el) {
 }
 
 // Initialize app
-const app = new Vue({
-    router,
-    store,
-}).$mount('#app');
+const app = createApp();
+app.use(router);
+app.use(store);
+app.mount('#app');

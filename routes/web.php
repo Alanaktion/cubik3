@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'AppController@app')->name('app');
-Route::get('/{any}', 'AppController@app')->where('any', '.*');
+Route::get('/', [AppController::class, 'app'])->name('app');
+Route::get('/{any}', [AppController::class, 'app'])->where('any', '.*');

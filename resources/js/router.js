@@ -1,5 +1,4 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
 import store from './vuex-store';
 
@@ -9,10 +8,8 @@ import Login from './pages/Login.vue';
 import Register from './pages/Register.vue';
 import User from './pages/User.vue';
 
-Vue.use(VueRouter);
-
-const router = new VueRouter({
-    mode: 'history',
+const router = createRouter({
+    history: createWebHistory(),
     routes: [
         {
             path: '/',
@@ -34,7 +31,7 @@ const router = new VueRouter({
         },
         // This route must be last:
         {
-            path: '*',
+            path: '/:pathMatch(.*)*',
             name: '404',
             component: Error404,
         },
@@ -43,32 +40,26 @@ const router = new VueRouter({
         if (savedPosition) {
             return savedPosition;
         } else {
-            return { x: 0, y: 0 };
+            return { left: 0, top: 0 };
         }
     },
 });
 
 // Before entering routes, check authentication requirements
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, from) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
         if (!store.state.user) {
-            next({
+            return {
                 path: '/login',
                 query: { redirect: to.fullPath },
-            });
-        } else {
-            next();
+            };
         }
     } else if (to.matched.some(record => record.meta.unauthorized)) {
-        if (!store.state.user) {
-            next();
-        } else {
-            next({
+        if (store.state.user) {
+            return {
                 path: '/',
-            });
+            };
         }
-    } else {
-        next();
     }
 });
 

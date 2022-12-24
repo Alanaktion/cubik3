@@ -19,7 +19,16 @@
 </template>
 
 <script>
+import PostForm from '../components/PostForm.vue';
+import PostCard from '../components/PostCard.vue';
+import PostCardPlaceholder from '../components/PostCardPlaceholder.vue';
+
 export default {
+    components: {
+        PostForm,
+        PostCard,
+        PostCardPlaceholder,
+    },
     data: () => ({
         loading: false,
         posts: [],

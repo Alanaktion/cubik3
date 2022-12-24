@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="sticky top-0 bg-gray-800 dark:bg-ngray-800">
+        <nav class="sticky top-0 bg-gray-800 dark:bg-zinc-800">
             <div class="container">
                 <div class="relative flex items-center justify-between h-16">
                     <div class="flex items-center">
@@ -42,7 +42,7 @@
                     </div>
                     <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
                         v-else>
-                        <router-link to="/login" class="px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out dark:hover:bg-ngray-700 dark:focus:bg-ngray-700">
+                        <router-link to="/login" class="px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out dark:hover:bg-zinc-700 dark:focus:bg-zinc-700">
                             Sign in
                         </router-link>
                         <router-link to="/register" class="px-3 py-2 ml-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue active:bg-blue-700 transition duration-150 ease-in-out">
@@ -61,20 +61,20 @@
             v-if="user">
             <transition
                 enter-active-class="transition ease-out duration-100"
-                enter-class="transform opacity-0 scale-95"
-                enter-to-class="transform opacity-100 scale-100"
+                enter-class="opacity-0 scale-95"
+                enter-to-class="opacity-100 scale-100"
                 leave-active-class="transition ease-in duration-75"
-                leave-class="transform opacity-100 scale-100"
-                leave-to-class="transform opacity-0 scale-95">
+                leave-class="opacity-100 scale-100"
+                leave-to-class="opacity-0 scale-95">
                 <div v-show="userOpen" class="origin-top-right absolute right-0 -mt-2 mr-3 w-48 rounded-md shadow-lg z-10">
-                    <div class="py-1 rounded-md bg-white shadow-xs dark:bg-ngray-700" role="menu" aria-orientation="vertical" aria-labelledby="user-menu" @click="userOpen = false">
-                        <router-link :to="`/@${user.username}`" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out dark:text-gray-100 dark:hover:bg-ngray-600 dark:focus:bg-gray-600 dark:hover:text-white">
+                    <div class="py-1 rounded-md bg-white shadow-xs dark:bg-zinc-700" role="menu" aria-orientation="vertical" aria-labelledby="user-menu" @click="userOpen = false">
+                        <router-link :to="`/@${user.username}`" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out dark:text-zinc-100 dark:hover:bg-zinc-600 dark:focus:bg-gray-600 dark:hover:text-white">
                             Your Profile
                         </router-link>
-                        <router-link to="/settings" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out dark:text-gray-100 dark:hover:bg-ngray-600 dark:focus:bg-gray-600 dark:hover:text-white">
+                        <router-link to="/settings" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out dark:text-zinc-100 dark:hover:bg-zinc-600 dark:focus:bg-gray-600 dark:hover:text-white">
                             Settings
                         </router-link>
-                        <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out dark:text-gray-100 dark:hover:bg-ngray-600 dark:focus:bg-gray-600 dark:hover:text-white"
+                        <button class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out dark:text-zinc-100 dark:hover:bg-zinc-600 dark:focus:bg-gray-600 dark:hover:text-white"
                             @click="logOut">
                             Sign out
                         </button>
@@ -83,18 +83,18 @@
             </transition>
             <transition
                 enter-active-class="transition ease-out duration-100"
-                enter-class="transform opacity-0 scale-95"
-                enter-to-class="transform opacity-100 scale-100"
+                enter-class="opacity-0 scale-95"
+                enter-to-class="opacity-100 scale-100"
                 leave-active-class="transition ease-in duration-75"
-                leave-class="transform opacity-100 scale-100"
-                leave-to-class="transform opacity-0 scale-95">
+                leave-class="opacity-100 scale-100"
+                leave-to-class="opacity-0 scale-95">
                 <div v-show="notificationsOpen" class="origin-top absolute right-0 -mt-2 mr-3 sm:mr-0 w-48 rounded-md shadow-lg z-10">
-                    <div class="py-1 rounded-md bg-white shadow-xs dark:bg-ngray-700 h-48 flex flex-col overflow-y-auto"
+                    <div class="py-1 rounded-md bg-white shadow-xs dark:bg-zinc-700 h-48 flex flex-col overflow-y-auto"
                         role="menu"
                         aria-orientation="vertical"
                         aria-labelledby="notification-menu"
                         @click="userOpen = false">
-                        <div v-if="notificationsLoading" class="text-center pt-20 text-gray-600 dark:text-gray-400">
+                        <div v-if="notificationsLoading" class="text-center pt-20 text-gray-600 dark:text-zinc-400">
                             Just a sec&hellip;
                         </div>
                         <div v-else-if="notifications.length">
@@ -104,7 +104,7 @@
                                 <code>{{ notif.type }}</code>
                             </div>
                         </div>
-                        <div v-else class="text-center pt-20 text-gray-600 dark:text-gray-400">
+                        <div v-else class="text-center pt-20 text-gray-600 dark:text-zinc-400">
                             You're all caught up!
                         </div>
                     </div>
@@ -118,8 +118,16 @@
 
 <script>
 import Mousetrap from 'mousetrap';
+import FormBtn from '../components/FormBtn.vue';
+import PostModal from '../components/PostModal.vue';
+import HotkeyModal from '../components/HotkeyModal.vue';
 
 export default {
+    components: {
+        FormBtn,
+        PostModal,
+        HotkeyModal,
+    },
     props: {
         logo: String,
     },

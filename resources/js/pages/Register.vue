@@ -2,10 +2,10 @@
     <div class="container py-4 md:py-6 mb-8">
         <div class="max-w-md w-full mx-auto">
             <div>
-                <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900 dark:text-gray-300">
+                <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900 dark:text-zinc-300">
                     Create Account
                 </h2>
-                <p class="mt-2 text-center text-sm leading-5 text-gray-600 dark:text-gray-400">
+                <p class="mt-2 text-center text-sm leading-5 text-gray-600 dark:text-zinc-400">
                     Or
                     <router-link to="/login" class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150 dark:text-blue-500 dark:hover:text-blue-400">
                         sign in
@@ -60,7 +60,12 @@
 </template>
 
 <script>
+import InputText from '../components/InputText.vue';
+
 export default {
+    components: {
+        InputText,
+    },
     data: () => ({
         name: '',
         nameError: '',
